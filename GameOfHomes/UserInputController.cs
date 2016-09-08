@@ -10,14 +10,10 @@ namespace GameOfHomes
 {
 	public class UserInputController
 	{
-		GameEntryPoint gameEntry;
+		
 
 		Dictionary<string,UserCommand> commands = new Dictionary<string, UserCommand>();
 
-		public UserInputController(GameEntryPoint gameEntry)
-		{
-			this.gameEntry = gameEntry;
-		}
 
 		public void ProcessCommand()
 		{
@@ -66,6 +62,18 @@ namespace GameOfHomes
 ;
 		}
 
-	
+
+		public override string ToString()
+		{
+			var sb = new StringBuilder();
+			foreach (var key in commands.Keys)
+			{
+				sb.Append(" ");
+				sb.Append(key);
+				sb.Append(" - ");
+				sb.AppendLine(commands[key].Description);
+			}
+			return sb.ToString();
+		}
 	}
 }
