@@ -16,28 +16,41 @@ namespace GameOfHomes.Commands
 		MethodInfo callableMethod;
 		object callableObject;
 
-		ArgumentSet arguments;
-		 
+		Action callableAction;
 
-		public UserCommand(string name, string description, string method, ArgumentSet arguments)
+		ArgumentSet arguments;
+
+
+		public UserCommand(string name, string description, Action action)
+		{
+			callableAction = action;
+			Name = name;
+			Description = description;
+		}
+
+		public UserCommand(string name, string description, string method, object obj, ArgumentSet arguments)
 		{
 			Name = name;
 			Description = description;
 			Method = method;
+			callableObject = obj;
+
+
+			callableMethod = obj.GetType().GetMethod(method);
+
+			if (callableMethod == null)
+				throw new ArgumentException("Method " + method + " does not exist");
+
 			this.arguments = arguments;
 		}
 
-		public void InitCommand(MethodInfo method, object o)
-		{
-			callableMethod = method;
-			callableObject = o;
-		}
 
 		public void Execute(string args)
 		{
 			object[] o = arguments?.ParseArguments(args);
 
-			callableMethod.Invoke(callableObject, o);
+			callableMethod?.Invoke(callableObject, o);
+			callableAction?.Invoke();
 		}
 	}
 }

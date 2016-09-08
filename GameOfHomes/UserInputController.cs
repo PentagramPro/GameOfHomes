@@ -19,40 +19,51 @@ namespace GameOfHomes
 			this.gameEntry = gameEntry;
 		}
 
-		public void ProcessCommand(string cmdLine)
+		public void ProcessCommand()
 		{
-			cmdLine = cmdLine.Trim();
-			int pos = cmdLine.IndexOf(' ');
-			string cmd,args;
-			if (pos >= 0)
+		
+			try
 			{
-				cmd = cmdLine.Substring(0, pos);
-				args = cmdLine.Substring(pos);
+				string cmdLine = Console.ReadLine();
+
+				cmdLine = cmdLine.Trim();
+				int pos = cmdLine.IndexOf(' ');
+				string cmd, args;
+				if (pos >= 0)
+				{
+					cmd = cmdLine.Substring(0, pos);
+					args = cmdLine.Substring(pos);
+				}
+				else
+				{
+					cmd = cmdLine;
+					args = "";
+				}
+
+
+				if (!commands.ContainsKey(cmd))
+					throw new ArgumentException("Unknown command: " + cmd);
+
+				commands[cmd].Execute(args);
 			}
-			else
+			catch (ArgumentException ex)
 			{
-				cmd = cmdLine;
-				args = "";
+				Console.WriteLine(ex.Message);
+	
 			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Cannot execute this command, unknown error");
 			
+			}
 
-			if(!commands.ContainsKey(cmd))
-				throw new ArgumentException("Unknown command: "+cmd);
-
-			commands[cmd].Execute(args);
+			
 		}
 
 		public void AddCommand(UserCommand command)
 		{
 			commands[command.Name] = command;
-
-			string name = command.Method;
-			MethodInfo method = gameEntry.GetType().GetMethod(name);
-
-			if (method == null)
-				throw new ArgumentException("Method " + name + " does not exist");
-
-			command.InitCommand(method,gameEntry);
+;
 		}
 
 	

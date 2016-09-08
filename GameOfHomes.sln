@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfHomes", "GameOfHomes\GameOfHomes.csproj", "{0EB98C16-C25A-45F9-8278-51DC74837018}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6} = {92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonClasses", "CommonClasses\CommonClasses.csproj", "{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{0EB98C16-C25A-45F9-8278-51DC74837018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EB98C16-C25A-45F9-8278-51DC74837018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EB98C16-C25A-45F9-8278-51DC74837018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92393236-B25A-4C6F-A46C-CBCD4D1CA4F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,10 +15,6 @@ namespace GameOfHomes
 			this.game = game;
 		}
 
-		public void Exit()
-		{
-			game.ExitGame();
-		}
 
 		public void Explore(int countyId)
 		{

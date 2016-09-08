@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfHomes.Commands
+namespace GameOfHomes.Model
 {
-	interface ICommand
+	public class World
 	{
-
+		public List<Country> Countries = new List<Country>(); 
 	}
 }
