@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonClasses;
+using GameOfHomes.Model.Technologies;
+using GameOfHomes.Model.Technologies.Common;
 
 namespace GameOfHomes.Model
 {
@@ -12,18 +15,37 @@ namespace GameOfHomes.Model
 
 		public Population Pop;
 
-		public float FoodProduction { get; private set; }
 
-		public Country()
+		public WorkTradition Tradition;
+		public ResourceStorage OverallProduction;
+
+
+
+		public static Country GenerateRandomCountry()
 		{
-			CalculateStats();
+			Country c = new Country();
+			c.Tradition = new WorkTradition();
+
+
 		}
 
-		void CalculateStats()
+		public void Turn()
 		{
+			CalculateProduction();
+
+			Tradition.Turn(this);
+
+			Pop.Turn();
+		}
+
+
+		void CalculateProduction()
+		{
+			OverallProduction.Clear();
+
 			foreach (var area in Areas)
 			{
-				FoodProduction += area.FoodProduction;
+				OverallProduction += area.Prototype.Production*area.Space;
 			}
 		}
 

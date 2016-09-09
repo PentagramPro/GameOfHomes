@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace GameOfHomes.Model
 {
-	public class Area
+	public class Resource
 	{
-		public float Space;
-		public AreaPrototype Prototype;
+		public ResourcePrototype Prototype;
+		public float Amount;
 
-		public Area(AreaPrototype prototype, float space)
+		public Resource(ResourcePrototype prototype, float amount)
 		{
 			Prototype = prototype;
-			Space = space;
+			Amount = amount;
 		}
-
-		
-
 	}
 }

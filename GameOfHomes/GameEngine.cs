@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameOfHomes.Model;
 
 namespace GameOfHomes
 {
-	public class GameEntryPoint
+	public class GameEngine
 	{
-		Game game;
+		List<Country> Countries = new List<Country>();
 
-		public GameEntryPoint(Game game)
+		public void CreateNewGame()
 		{
-			this.game = game;
+			
 		}
 
 

@@ -14,5 +14,10 @@ namespace CommonClasses
 		    float x = random.Next();
 		    return (x/int.MaxValue)*(max - min) + min;
 	    }
+
+	    public static float Range(int min, int max)
+	    {
+		    return random.Next(min, max);
+	    }
     }
 }

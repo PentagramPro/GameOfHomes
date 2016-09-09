@@ -46,11 +46,21 @@
   <ItemGroup>
     <Compile Include="Commands\ArgumentSet.cs" />
     <Compile Include="Commands\UserCommand.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="GameEntryPoint.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GameEngine.cs" />
     <Compile Include="Model\Area.cs" />
+    <Compile Include="Model\AreaPrototype.cs" />
+    <Compile Include="Model\Areas.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\Population.cs" />
+    <Compile Include="Model\Resource.cs" />
+    <Compile Include="Model\ResourcePrototype.cs" />
+    <Compile Include="Model\Resources.cs" />
+    <Compile Include="Model\ResourceStorage.cs" />
+    <Compile Include="Model\Technologies\AreaTransformTechnology.cs" />
+    <Compile Include="Model\Technologies\Common\BaseTechnology.cs" />
+    <Compile Include="Model\Technologies\Common\IAreaTechnology.cs" />
+    <Compile Include="Model\Technologies\WorkTradition.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

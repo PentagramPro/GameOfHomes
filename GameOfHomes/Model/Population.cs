@@ -74,9 +74,11 @@ namespace GameOfHomes.Model
 
 		public void Turn()
 		{
+			float foodProduction=country.OverallProduction[Resources.Food];
+			
 			float oldTotal = Total;
 			float infants = Workers*0.2f;
-			float foodBalance = Total - country.FoodProduction;
+			float foodBalance = Total - foodProduction;
 			float deathRate=0.01f;
 
 			if (foodBalance > 0)

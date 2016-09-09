@@ -11,11 +11,11 @@ namespace GameOfHomes
 		static void Main(string[] args)
 		{
 
-			Game game = new Game();
+			GameManager _gameManager = new GameManager();
 
-			game.Init();
+			_gameManager.Init();
 
-			game.Start();
+			_gameManager.Start();
 		}
 	}
 }

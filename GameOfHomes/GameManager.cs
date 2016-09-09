@@ -8,11 +8,11 @@ using GameOfHomes.Commands;
 
 namespace GameOfHomes
 {
-	public class Game
+	public class GameManager
 	{
 		enum States { Init, Menu,Game }
 
-		public GameEntryPoint GameEntry;
+		public GameEngine GameEntry;
 
 		UserInputController menuInput,gameInput;
 
@@ -25,7 +25,7 @@ namespace GameOfHomes
 
 		public void Init()
 		{
-			GameEntry = new GameEntryPoint(this);
+			GameEntry = new GameEngine(this);
 			menuInput = new UserInputController();
 			gameInput = new UserInputController();
 
