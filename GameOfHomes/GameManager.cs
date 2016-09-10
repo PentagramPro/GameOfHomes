@@ -44,7 +44,9 @@ namespace GameOfHomes
 				OnPrintListOfCommands));
 			gameInput.AddCommand(new UserCommand("look", "Look at location for more details",
 				"OnOverview", Engine, new ArgumentSet(typeof(string))));
-			
+			gameInput.AddCommand(new UserCommand("turn", "Next turn",
+				"OnTurn", Engine, null));
+
 			fsa.Switch("init_complete");
 			
 		}
@@ -61,6 +63,7 @@ namespace GameOfHomes
 		void OnNewGame(States oldState, States newState)
 		{
 			currentInput = gameInput;
+			Engine.CreateNewGame();
 			Console.WriteLine("Welcome to the GameOfHomes! Type 'list' for a list of commands");
 		}
 

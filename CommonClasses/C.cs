@@ -79,6 +79,7 @@ namespace CommonClasses
 				{
 					string color = str.Substring(pos, cl - pos);
 					SetColor(color);
+					pos = cl + 1;
 				}
 				
 			}

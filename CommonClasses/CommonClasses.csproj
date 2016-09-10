@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C.cs" />
     <Compile Include="exceptions\FsaException.cs" />
     <Compile Include="FSA.cs" />
     <Compile Include="GeneralStorage.cs" />

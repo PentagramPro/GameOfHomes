@@ -24,7 +24,7 @@ namespace GameOfHomes.Model
 			C.W(Prototype.Name+" : ");
 			foreach (var p in Prototype.Production)
 			{
-				C.InColor($"<G>{p.Amount} <GR>{p.Prototype.Name}  ");
+				C.InColor($"<G>{p.Amount} <W>{p.Prototype.Name}  ");
 			}
 			C.Wl();
 

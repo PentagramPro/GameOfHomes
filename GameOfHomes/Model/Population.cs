@@ -44,9 +44,13 @@ namespace GameOfHomes.Model
 		public Population(Country country, float pop)
 		{
 			this.country = country;
+
+			ByAges = new List<float>();
+
 			if (pop <= 0)
 				return;
 
+			
 			for(int i=0;i<30;i++)
 				ByAges.Add(pop/30);
 		}

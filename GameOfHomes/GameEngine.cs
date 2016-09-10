@@ -18,7 +18,12 @@ namespace GameOfHomes
 
 		public void OnOverview(string what)
 		{
-			
+			world.Overview();
+		}
+
+		public void OnTurn()
+		{
+			world.Turn();
 		}
 
 		public void Explore(int countyId)
