@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonClasses;
 
 namespace GameOfHomes.Model
 {
@@ -17,7 +18,16 @@ namespace GameOfHomes.Model
 			Space = space;
 		}
 
-		
 
+		public void Overview()
+		{
+			C.W(Prototype.Name+" : ");
+			foreach (var p in Prototype.Production)
+			{
+				C.InColor($"<G>{p.Amount} <GR>{p.Prototype.Name}  ");
+			}
+			C.Wl();
+
+		}
 	}
 }

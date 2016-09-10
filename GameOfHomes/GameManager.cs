@@ -12,7 +12,7 @@ namespace GameOfHomes
 	{
 		enum States { Init, Menu,Game }
 
-		public GameEngine GameEntry;
+		public GameEngine Engine;
 
 		UserInputController menuInput,gameInput;
 
@@ -25,7 +25,7 @@ namespace GameOfHomes
 
 		public void Init()
 		{
-			GameEntry = new GameEngine(this);
+			Engine = new GameEngine();
 			menuInput = new UserInputController();
 			gameInput = new UserInputController();
 
@@ -42,6 +42,8 @@ namespace GameOfHomes
 
 			gameInput.AddCommand(new UserCommand("list", "Shows this list",
 				OnPrintListOfCommands));
+			gameInput.AddCommand(new UserCommand("look", "Look at location for more details",
+				"OnOverview", Engine, new ArgumentSet(typeof(string))));
 			
 			fsa.Switch("init_complete");
 			

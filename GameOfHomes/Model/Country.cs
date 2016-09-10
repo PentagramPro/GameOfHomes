@@ -60,5 +60,18 @@ namespace GameOfHomes.Model
 			}
 		}
 
+		public void Overview()
+		{
+			
+			C.Wl("Areas:");
+			C.Inc();
+			foreach (var area in Areas)
+			{
+				area.Overview();
+			}
+			C.Dec();
+
+		}
+
 	}
 }

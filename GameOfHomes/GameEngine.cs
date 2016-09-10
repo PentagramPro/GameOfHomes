@@ -9,13 +9,17 @@ namespace GameOfHomes
 {
 	public class GameEngine
 	{
-		List<Country> Countries = new List<Country>();
+		World world;
 
 		public void CreateNewGame()
 		{
-			
+			world = World.GenerateWorld();
 		}
 
+		public void OnOverview(string what)
+		{
+			
+		}
 
 		public void Explore(int countyId)
 		{
