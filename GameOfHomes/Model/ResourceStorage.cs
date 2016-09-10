@@ -3,24 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonClasses;
 
 namespace GameOfHomes.Model
 {
-	public class ResourceStorage
+	public class ResourceStorage : GeneralStorage<ResourcePrototype,Resource>
 	{
-		Dictionary<ResourcePrototype,Resource> resources = new Dictionary<ResourcePrototype, Resource>(); 
-		public float this[ResourcePrototype index]
+		
+		public ResourceStorage(Resource[] reslist)
 		{
-			get
+			if (reslist == null)
+				return;
+			foreach (var r in reslist)
 			{
-				if (!resources.ContainsKey(index))
-					return 0;
-
-				return resources[index].Amount;
-			}
-			set
-			{
-				resources[index] = new Resource(index,value);
+				this[r.Prototype] = r.Amount;
 			}
 		}
 
@@ -28,44 +24,38 @@ namespace GameOfHomes.Model
 		{
 		}
 
-		public ResourceStorage(ResourceStorage s)
+		public ResourceStorage(GeneralStorage<ResourcePrototype, Resource> s) : base(s)
 		{
-			foreach (var key in s.resources.Keys)
-			{
-				resources[key] = s.resources[key];
-			}
 		}
 
-		public ResourceStorage(Resource[] reslist)
+		public static ResourceStorage operator +
+			(ResourceStorage r1, ResourceStorage r2)
 		{
-			if (reslist == null)
-				return;
-			foreach (var r in reslist)
-			{
-				resources[r.Prototype] = r;
-			}
-		}
-
-		public void Clear() => resources.Clear();
-
-		public static ResourceStorage operator+(ResourceStorage r1, ResourceStorage r2 )
-		{
-			ResourceStorage res = new ResourceStorage(r1);
-			foreach (var key in r2.resources.Keys)
-			{
-				res[key] += r2[key];
-			}
+			ResourceStorage res = (ResourceStorage) r1.Clone();
+			res.Append(r2);
 			return res;
 		}
 
 		public static ResourceStorage operator *(ResourceStorage r1, float rate)
 		{
-			ResourceStorage res = new ResourceStorage(r1);
-			foreach (var k in res.resources.Keys)
-			{
-				res.resources[k].Amount *= rate;
-			}
+			ResourceStorage res = (ResourceStorage) r1.Clone();
+			res.Multiply(rate);
 			return res;
+		}
+
+		protected override Resource CreateElement(ResourcePrototype key, float value)
+		{
+			return new Resource(key,value);
+		}
+
+		protected override float GetValue(Resource element)
+		{
+			return element.Amount;
+		}
+
+		protected override GeneralStorage<ResourcePrototype, Resource> Clone()
+		{
+			return new ResourceStorage(this);
 		}
 	}
 }

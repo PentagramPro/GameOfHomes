@@ -11,7 +11,7 @@ namespace GameOfHomes.Model
 {
 	public class Country
 	{
-		public List<Area> Areas = new List<Area>();
+		public AreaStorage Areas = new AreaStorage();
 
 		public Population Pop;
 
@@ -19,18 +19,25 @@ namespace GameOfHomes.Model
 		public WorkTradition Tradition;
 		public ResourceStorage OverallProduction;
 
+		public List<string> TurnLog = new List<string>(); 
 
-
-		public static Country GenerateRandomCountry()
+		public static Country GenerateRandomCountry(float pop)
 		{
 			Country c = new Country();
 			c.Tradition = new WorkTradition();
+			c.Pop = new Population(c,pop);
 
+			c.Areas[Model.AreasDic.Forest] = Rnd.Range(3.0f, 5.0f);
+			c.Areas[Model.AreasDic.Farmland] = Rnd.Range(1.0f, 4.0f);
+			c.Areas[Model.AreasDic.Wasteland] = Rnd.Range(0.1f, 2.0f);
 
+			return c;
 		}
 
 		public void Turn()
 		{
+			TurnLog.Clear();
+
 			CalculateProduction();
 
 			Tradition.Turn(this);
@@ -38,6 +45,10 @@ namespace GameOfHomes.Model
 			Pop.Turn();
 		}
 
+		public void WriteLog(string s)
+		{
+			TurnLog.Add(s);
+		}
 
 		void CalculateProduction()
 		{

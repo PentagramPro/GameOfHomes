@@ -41,6 +41,16 @@ namespace GameOfHomes.Model
 			this.country = country;
 		}
 
+		public Population(Country country, float pop)
+		{
+			this.country = country;
+			if (pop <= 0)
+				return;
+
+			for(int i=0;i<30;i++)
+				ByAges.Add(pop/30);
+		}
+
 		[OnDeserialized]
 		internal void OnDeserializedMethod(StreamingContext context)
 		{

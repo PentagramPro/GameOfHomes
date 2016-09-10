@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameOfHomes.Model
 {
-	public class Areas
+	public class AreasDic
 	{
 		public static readonly AreaPrototype 
 			Farmland = new AreaPrototype("farmland",new []
@@ -16,7 +16,8 @@ namespace GameOfHomes.Model
 			Wasteland = new AreaPrototype("wasteland",null),
 			Forest = new AreaPrototype("forest", new[]
 			{
-				new Resource(Resources.Food,2)
+				new Resource(Resources.Food,2),
+				new Resource(Resources.Wood,1.5f), 
 			}),
 			Town = new AreaPrototype("town", new[]
 			{

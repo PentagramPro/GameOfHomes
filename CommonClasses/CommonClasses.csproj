@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="exceptions\FsaException.cs" />
     <Compile Include="FSA.cs" />
+    <Compile Include="GeneralStorage.cs" />
     <Compile Include="SubjectRate.cs" />
     <Compile Include="Rnd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

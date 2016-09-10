@@ -50,7 +50,8 @@
     <Compile Include="GameEngine.cs" />
     <Compile Include="Model\Area.cs" />
     <Compile Include="Model\AreaPrototype.cs" />
-    <Compile Include="Model\Areas.cs" />
+    <Compile Include="Model\AreasDic.cs" />
+    <Compile Include="Model\AreaStorage.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\Population.cs" />
     <Compile Include="Model\Resource.cs" />
